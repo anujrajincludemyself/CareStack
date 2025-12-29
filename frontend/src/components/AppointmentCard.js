@@ -7,14 +7,14 @@ const AppointmentCard = ({ appointment, onEdit, onDelete }) => {
       <p className="text-sm">
         <span className="text-gray-500">Patient: </span>
         <span className="text-gray-800 font-semibold">
-          {appointment.patientName}
+          {appointment.patientname}
         </span>
       </p>
 
       <p className="text-sm">
         <span className="text-gray-500">Doctor: </span>
         <span className="text-gray-800 font-semibold">
-          {appointment.doctorName}
+          {appointment.doctorname}
         </span>
       </p>
 
