@@ -5,8 +5,8 @@ import AppointmentCard from './AppointmentCard';
 const Appointments = () => {
   const [appointments, setAppointments] = useState([]);
   const [newAppointment, setNewAppointment] = useState({
-    patientName: '',
-    doctorName: '',
+    patientname: '',
+    doctorname: '',
     date: ''
   });
   const [selectedAppointment, setSelectedAppointment] = useState(null);
@@ -29,8 +29,8 @@ const Appointments = () => {
       .then(response => {
         setAppointments([...appointments, response.data]);
         setNewAppointment({
-          patientName: '',
-          doctorName: '',
+          patientname: '',
+          doctorname: '',
           date: ''
         });
       })
@@ -114,18 +114,18 @@ const Appointments = () => {
               className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
               value={
                 isEditMode
-                  ? selectedAppointment.patientName
-                  : newAppointment.patientName
+                  ? selectedAppointment.patientname
+                  : newAppointment.patientname
               }
               onChange={(e) =>
                 isEditMode
                   ? setSelectedAppointment({
                       ...selectedAppointment,
-                      patientName: e.target.value
+                      patientname: e.target.value
                     })
                   : setNewAppointment({
                       ...newAppointment,
-                      patientName: e.target.value
+                      patientname: e.target.value
                     })
               }
             />
@@ -140,18 +140,18 @@ const Appointments = () => {
               className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
               value={
                 isEditMode
-                  ? selectedAppointment.doctorName
-                  : newAppointment.doctorName
+                  ? selectedAppointment.doctorname
+                  : newAppointment.doctorname
               }
               onChange={(e) =>
                 isEditMode
                   ? setSelectedAppointment({
                       ...selectedAppointment,
-                      doctorName: e.target.value
+                      doctorname: e.target.value
                     })
                   : setNewAppointment({
                       ...newAppointment,
-                      doctorName: e.target.value
+                      doctorname: e.target.value
                     })
               }
             />
