@@ -1,6 +1,7 @@
 const express = require('express')
 const router = express.Router()
 const Doctor = require('../models/Doctor')
+const mongoose = require('mongoose')
 
 router.get('/',async(req,res)=>{
 try {
@@ -62,7 +63,7 @@ router.delete('/delete/:id', async (req, res) => {
   try {
     const { id } = req.params;
 
-    // ✅ validate ObjectId
+    //  validate ObjectId
     if (!mongoose.Types.ObjectId.isValid(id)) {
       return res.status(400).json({ message: 'Invalid doctor ID' });
     }
