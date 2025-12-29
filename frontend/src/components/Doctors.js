@@ -25,10 +25,10 @@ const Doctors = () => {
 
     axios
       .post('https://carestack.onrender.com/doctor/add', newDoctor)
-      .then(response => {
-        setDoctors([...doctors, response.data]);
-        setNewDoctor({ name: '', specialty: '' });
-      })
+     .then(response => {
+     setDoctors(prev => [...prev, response.data.doctor]);
+     setNewDoctor({ name: '', specialty: '' });
+})
       .catch(error =>
         console.error('Error adding doctor:', error)
       );

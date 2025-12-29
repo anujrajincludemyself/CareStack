@@ -27,7 +27,7 @@ const Patients = () => {
     axios
       .post('https://carestack.onrender.com/patient/add', newPatient)
       .then(response => {
-        setPatients([...patients, response.data]);
+        setPatients(prev => [...prev, response.data.patient]);
         setNewPatient({ name: '', age: '', gender: '' });
       })
       .catch(error =>

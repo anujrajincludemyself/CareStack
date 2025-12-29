@@ -27,7 +27,7 @@ const Appointments = () => {
     axios
       .post('https://carestack.onrender.com/appointments/add', newAppointment)
       .then(response => {
-        setAppointments([...appointments, response.data]);
+       setAppointments(prev => [...prev, response.data.appointment]);
         setNewAppointment({
           patientname: '',
           doctorname: '',
