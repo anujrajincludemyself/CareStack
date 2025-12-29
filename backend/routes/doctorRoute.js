@@ -57,18 +57,32 @@ router.put('/update/:id',async(req,res)=>{
   }
 });
 
+// DELETE doctor
 router.delete('/delete/:id', async (req, res) => {
   try {
-    const doc = await Doctor.findByIdAndDelete(req.params.id);
+    const { id } = req.params;
 
-    if (!doc) {
-      return res.status(404).json('Doctor not found');
+    // ✅ validate ObjectId
+    if (!mongoose.Types.ObjectId.isValid(id)) {
+      return res.status(400).json({ message: 'Invalid doctor ID' });
     }
 
-    res.json('Doctor deleted!');
+    const doc = await Doctor.findByIdAndDelete(id);
+
+    if (!doc) {
+      return res.status(404).json({ message: 'Doctor not found' });
+    }
+
+    res.status(200).json({
+      message: 'Doctor deleted successfully',
+      doctor: doc
+    });
+
   } catch (err) {
-    res.status(400).json('Error: ' + err.message);
+    console.error('Delete doctor error:', err);
+    res.status(500).json({ error: err.message }); // ✅ 500, NOT 400
   }
 });
+
 
 module.exports = router
