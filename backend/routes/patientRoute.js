@@ -60,19 +60,29 @@ router.put('/update/:id', async (req, res) => {
   }
 });
 
-// DELETE patient
 router.delete('/delete/:id', async (req, res) => {
   try {
-    const deletedPatient = await Patient.findByIdAndDelete(req.params.id);
+    const { id } = req.params;
+
+    // ✅ validate ObjectId
+    if (!mongoose.Types.ObjectId.isValid(id)) {
+      return res.status(400).json({ message: 'Invalid patient ID' });
+    }
+
+    const deletedPatient = await Patient.findByIdAndDelete(id);
 
     if (!deletedPatient) {
       return res.status(404).json({ message: 'Patient not found' });
     }
 
-    res.status(200).json({ message: 'Patient deleted successfully' });
+    res.status(200).json({
+      message: 'Patient deleted successfully',
+      patient: deletedPatient
+    });
 
   } catch (err) {
-    res.status(400).json({ error: err.message });
+    console.error('Delete patient error:', err);
+    res.status(500).json({ error: err.message }); // ✅ 500, not 400
   }
 });
 
