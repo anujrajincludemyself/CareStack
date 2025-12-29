@@ -22,7 +22,7 @@ const DoctorCard = ({ doctor, onEdit, onDelete }) => {
         </button>
 
         <button
-          onClick={() => onDelete(doctor.id)}
+          onClick={() => onDelete(doctor._id)}
           className="px-4 py-1.5 rounded-md bg-red-500 hover:bg-red-600 text-white text-sm font-medium transition"
         >
           Delete
