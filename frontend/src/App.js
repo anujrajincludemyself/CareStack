@@ -1,9 +1,9 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import {
   BrowserRouter as Router,
   Routes,
-  Route,
-  Link
+  Route
 } from 'react-router-dom';
 
 import Appointments from './components/Appointments';
@@ -17,66 +17,72 @@ const App = () => {
     <Router>
       <div className="min-h-screen bg-gray-50 text-gray-800 px-8 py-6">
 
-        {/* Header */}
-        {/* Right branding */}
-          <div className="text-sm font-extrabold select-none">
-            <span className="
-              bg-gradient-to-r 
-              from-purple-500 
-              via-pink-500 
-              to-orange-400
-              bg-clip-text 
-              text-transparent
-              drop-shadow-[2px_2px_2px_rgba(0,0,0,0.25)]
-              hover:scale-105
-              transition-transform
-              cursor-default
-            ">
-              Developed by Anuj Raj
-            </span>
-          </div>
+     
+        <div className="text-sm font-extrabold select-none">
+          <span className="
+            bg-gradient-to-r 
+            from-purple-500 
+            via-pink-500 
+            to-orange-400
+            bg-clip-text 
+            text-transparent
+            drop-shadow-[2px_2px_2px_rgba(0,0,0,0.25)]
+            hover:scale-105
+            transition-transform
+            cursor-default
+          ">
+            Developed by Anuj Raj
+          </span>
+        </div>
+
         <h1 className="text-3xl font-bold text-blue-700 mb-8">
           CareStack 
         </h1>
-        
 
-        {/* Navbar */}
         <nav className="mb-10 border-b border-gray-200 pb-4">
           <ul className="flex gap-8 text-sm font-medium">
-            <li
-              className={
-                isLinkActive('/appointments')
-                  ? 'text-blue-700 border-b-2 border-blue-700 pb-1'
-                  : 'text-gray-600 hover:text-blue-600'
-              }
-            >
-              <Link to="/appointments">Appointments</Link>
+
+            <li>
+              <NavLink
+                to="/appointments"
+                className={({ isActive }) =>
+                  isActive
+                    ? 'text-blue-700 border-b-2 border-blue-700 pb-1'
+                    : 'text-gray-600 hover:text-blue-600'
+                }
+              >
+                Appointments
+              </NavLink>
             </li>
 
-            <li
-              className={
-                isLinkActive('/doctors')
-                  ? 'text-blue-700 border-b-2 border-blue-700 pb-1'
-                  : 'text-gray-600 hover:text-blue-600'
-              }
-            >
-              <Link to="/doctors">Doctors</Link>
+            <li>
+              <NavLink
+                to="/doctors"
+                className={({ isActive }) =>
+                  isActive
+                    ? 'text-blue-700 border-b-2 border-blue-700 pb-1'
+                    : 'text-gray-600 hover:text-blue-600'
+                }
+              >
+                Doctors
+              </NavLink>
             </li>
 
-            <li
-              className={
-                isLinkActive('/patients')
-                  ? 'text-blue-700 border-b-2 border-blue-700 pb-1'
-                  : 'text-gray-600 hover:text-blue-600'
-              }
-            >
-              <Link to="/patients">Patients</Link>
+            <li>
+              <NavLink
+                to="/patients"
+                className={({ isActive }) =>
+                  isActive
+                    ? 'text-blue-700 border-b-2 border-blue-700 pb-1'
+                    : 'text-gray-600 hover:text-blue-600'
+                }
+              >
+                Patients
+              </NavLink>
             </li>
+
           </ul>
-
-          
         </nav>
-
 
         {/* Routes */}
         <Routes>

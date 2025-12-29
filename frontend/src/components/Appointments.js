@@ -14,7 +14,7 @@ const Appointments = () => {
 
   useEffect(() => {
     axios
-      .get('http://localhost:5000/appointments')
+      .get('https://carestack.onrender.com/appointments')
       .then(response => setAppointments(response.data))
       .catch(error =>
         console.error('Error fetching appointments:', error)
@@ -25,7 +25,7 @@ const Appointments = () => {
     e.preventDefault();
 
     axios
-      .post('http://localhost:5000/appointments/add', newAppointment)
+      .post('https://carestack.onrender.com/appointments/add', newAppointment)
       .then(response => {
         setAppointments([...appointments, response.data]);
         setNewAppointment({
@@ -44,7 +44,7 @@ const Appointments = () => {
 
     axios
       .put(
-        `http://localhost:5000/appointments/update/${id}`,
+        `https://carestack.onrender.com/appointments/update/${id}`,
         selectedAppointment
       )
       .then(() => {
@@ -66,7 +66,7 @@ const Appointments = () => {
 
   const handleDeleteAppointment = (id) => {
     axios
-      .delete(`http://localhost:5000/appointments/delete/${id}`)
+      .delete(`https://carestack.onrender.com/appointments/delete/${id}`)
       .then(() => {
         setAppointments(
           appointments.filter(

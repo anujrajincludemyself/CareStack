@@ -14,7 +14,7 @@ const Patients = () => {
 
   useEffect(() => {
     axios
-      .get('http://localhost:5000/patient')
+      .get('https://carestack.onrender.com/patient')
       .then(response => setPatients(response.data))
       .catch(error =>
         console.error('Error fetching patients:', error)
@@ -25,7 +25,7 @@ const Patients = () => {
     e.preventDefault();
 
     axios
-      .post('http://localhost:5000/patient/add', newPatient)
+      .post('https://carestack.onrender.com/patient/add', newPatient)
       .then(response => {
         setPatients([...patients, response.data]);
         setNewPatient({ name: '', age: '', gender: '' });
@@ -40,7 +40,7 @@ const Patients = () => {
 
     axios
       .put(
-        `http://localhost:5000/patient/update/${id}`,
+        `https://carestack.onrender.com/patient/update/${id}`,
         selectedPatient
       )
       .then(() => {
@@ -62,7 +62,7 @@ const Patients = () => {
 
   const handleDeletePatient = (id) => {
     axios
-      .delete(`http://localhost:5000/patient/delete/${id}`)
+      .delete(`https://carestack.onrender.com/patient/delete/${id}`)
       .then(() => {
         setSelectedPatient(null);
         setPatients(

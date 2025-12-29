@@ -2,15 +2,23 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 require('dotenv').config();
+const app = express();
+app.use(cors({
+  origin: [
+    'http://localhost:3000',
+    'https://carestack.vercel.app'
+  ],
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+}));
 
 const patientsRoute = require('./routes/patientRoute');
 const doctorsRoute = require('./routes/doctorRoute');
 const appointmentRoute = require('./routes/appointmentRoute');
 
-const app = express();
+
 const PORT = process.env.PORT || 3000;
 
-app.use(cors());
+
 app.use(express.json());
 
 // MongoDB (optional)
