@@ -1,6 +1,8 @@
 const express = require("express");
 const router = express.Router();
 const Patient = require('../models/Patient');
+const mongoose = require('mongoose')
+
 
 // GET all patients
 router.get('/', async (req, res) => {
