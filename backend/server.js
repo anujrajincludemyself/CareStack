@@ -25,8 +25,11 @@ app.use(express.json());
 const mongoURL = process.env.MONGOURL;
 
 if (mongoURL) {
-  mongoose.connect(mongoURL, {
-  });
+ mongoose.connect(process.env.MONGOURL, {
+  ssl: true,
+  tls: true,
+  tlsAllowInvalidCertificates: true,
+});;
 
   const db = mongoose.connection;
 
