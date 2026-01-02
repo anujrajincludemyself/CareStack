@@ -1,8 +1,7 @@
-🏥 CareStack – Hospital Management System
-
 CareStack is a full-stack Hospital Management System designed to manage patients, doctors, and appointments in a clean, scalable, and user-friendly way.
 The project focuses on real-world CRUD operations, modular backend APIs, and a modern frontend UI.
 
+🏥 CareStack – Hospital Management System
 🚀 Live Demo
 
 Frontend (Vercel):
